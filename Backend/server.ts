@@ -23,11 +23,17 @@ app.get("/", (req: Request, res: Response) => {
   res.json({ message: "Server running" });
 });
 
+
+
 // Importing Routes
 import courseRoutes from "./routes/courseRoutes"
 
+import paymentRoute from "./routes/paymentRoute";
+
 // Routes
 app.use("/api/courses", courseRoutes);
+
+app.use("/api/student", paymentRoute);
 
 
 
