@@ -24,18 +24,17 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 
-
 // Importing Routes
-import courseRoutes from "./routes/courseRoutes"
 
+import courseRoutes from "./routes/courseRoutes"
 import paymentRoute from "./routes/paymentRoute";
+import studentRoutes from "./routes/studentRoutes";
 
 // Routes
+
 app.use("/api/courses", courseRoutes);
-
 app.use("/api/student", paymentRoute);
-
-
+app.use("/api/student", studentRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
