@@ -86,14 +86,21 @@ const courses = [
 const seedCourses = async () => {
   try {
     await connectDB();
-    await Course.deleteMany({});  // optional: clears existing data
+    console.log("Connected to DB");
+
+    await Course.deleteMany({});
+    console.log("Cleared existing courses");
+
     await Course.insertMany(courses);
-    console.log("Courses inserted successfully!");
+    console.log("Courses inserted successfully");
+
+    const all = await Course.find();
+    console.log("Inserted Courses:", all);
+
     process.exit(0);
-  } catch (error) {
-    console.error("Error seeding courses:", error);
+  } catch (err) {
+    console.error("Seeding failed:", err);
     process.exit(1);
   }
 };
-
 seedCourses();

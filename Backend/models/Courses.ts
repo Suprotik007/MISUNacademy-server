@@ -1,22 +1,23 @@
 import mongoose, { Schema, model } from "mongoose";
 
 
-const syllabusSchema = new Schema({
-  title: { type: String, required: true },
-  videoUrl: { type: String, required: true }
+
+const syllabusSchema = new mongoose.Schema({
+  title: String,
+  videoUrl: String
 });
 
-
-const courseSchema = new Schema({
-  title: { type: String, required: true },
-  description: { type: String, required: true },
-  instructor: { type: String, required: true },
-  price: { type: Number, required: true },
-  category: { type: String, required: true },
-  tags: [{ type: String }],
+const CourseSchema = new mongoose.Schema({
+  title: String,
+  description: String,
+  instructor: String,
+  price: Number,
+  category: String,
+  tags: [String],
   syllabus: [syllabusSchema]
-});
+}, { timestamps: true });
 
-const Course = model("Course", courseSchema);
+export default mongoose.model("Course", CourseSchema);
 
-export default Course;
+
+

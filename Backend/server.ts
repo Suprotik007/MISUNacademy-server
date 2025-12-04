@@ -23,7 +23,12 @@ app.get("/", (req: Request, res: Response) => {
   res.json({ message: "Server running" });
 });
 
+// Importing Routes
+import courseRoutes from "./routes/courseRoutes"
+
 // Routes
+app.use("/api/courses", courseRoutes);
+
 
 
 const PORT = process.env.PORT || 5000;
