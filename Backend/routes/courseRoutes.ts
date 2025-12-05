@@ -28,7 +28,24 @@ router.get("/:title", async (req, res) => {
   }
 });
 
-
+router.post("/", async (req, res) => {
+  try {
+    const { title, description, instructor, price, category, tags, syllabus } = req.body;
+    const newCourse = await Course.create({
+      title,
+      description,
+      instructor,
+      price,
+      category,
+      tags,
+      syllabus,
+    });
+    res.status(201).json(newCourse);
+  } catch (err) {
+    console.error("Add course error:", err);
+    res.status(500).json({ message: "Failed to add course" });
+  }
+});
 
 
 export default router;

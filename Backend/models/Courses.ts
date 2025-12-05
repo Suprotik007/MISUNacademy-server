@@ -14,7 +14,7 @@ const CourseSchema = new mongoose.Schema({
   price: Number,
   category: String,
   tags: [String],
-  syllabus: [syllabusSchema]
+  syllabus: [String]
 }, { timestamps: true });
 
 export default mongoose.model("Course", CourseSchema);
