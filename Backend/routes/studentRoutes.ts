@@ -7,8 +7,10 @@ const router = express.Router();
 router.get("/enrollments/:email", async (req, res) => {
   try {
     const email = decodeURIComponent(req.params.email);
-    const enrollments = await Enrollment.find({ userEmail: email });
-    res.status(200).json(enrollments);
+  const data = await Enrollment.find({ userEmail: email })
+  .populate("userId", "name email");
+res.json(data);
+
   } catch (error) {
     console.error("Fetch enrollments error:", error);
     res.status(500).json({ message: "Failed to fetch enrollments" });

@@ -31,6 +31,10 @@ import paymentRoute from "./routes/paymentRoute";
 import studentRoutes from "./routes/studentRoutes";
 import assignmentRoutes from "./routes/assignmentRoutes"; 
 import userRoute from "./routes/userRoutes";
+import adminRoutes from "./routes/adminRoutes";
+import batchEnrollRoutes from "./routes/batchEnroll";
+
+
 // Routes
 
 app.use("/api/courses", courseRoutes);
@@ -38,6 +42,8 @@ app.use("/api/student", paymentRoute);
 app.use("/api/student", studentRoutes);
 app.use("/api/assignments", assignmentRoutes);
 app.use("/api/users", userRoute);
+app.use("/api/admin", adminRoutes);
+app.use("/api/admin", batchEnrollRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));

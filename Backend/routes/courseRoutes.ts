@@ -6,10 +6,10 @@ const router = Router();
 // Get all courses
 router.get("/", async (req, res) => {
   try {
-    const courses = await Course.find();
+    const courses = await Course.find(); 
     res.json(courses);
-  } catch (error) {
-    res.status(500).json({ message: "Failed to fetch courses", error });
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
   }
 });
 
