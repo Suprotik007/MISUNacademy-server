@@ -30,13 +30,14 @@ import courseRoutes from "./routes/courseRoutes"
 import paymentRoute from "./routes/paymentRoute";
 import studentRoutes from "./routes/studentRoutes";
 import assignmentRoutes from "./routes/assignmentRoutes"; 
-
+import userRoute from "./routes/userRoutes";
 // Routes
 
 app.use("/api/courses", courseRoutes);
 app.use("/api/student", paymentRoute);
 app.use("/api/student", studentRoutes);
 app.use("/api/assignments", assignmentRoutes);
+app.use("/api/users", userRoute);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
